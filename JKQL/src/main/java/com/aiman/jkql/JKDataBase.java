@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.aiman.jkql.Segments.DBColumn;
 
 public abstract class JKDataBase extends SQLiteOpenHelper {
-    private final static String DataBase_Name = "JournalistMap.db";
+    private final static String DataBase_Name = "JKDataBase.db";
     public final String numericType = "NUMERIC";
     protected final String textType = "TEXT";
     protected final String intType = "INTEGER";
@@ -27,10 +27,6 @@ public abstract class JKDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-    }
-
-    public String getTableName() {
-        return tableName;
     }
 
     @Override
