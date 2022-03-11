@@ -29,15 +29,15 @@ android {
 dependencies {
 }
 
-afterEvaluate{
-    publishing{
-        publications{
-            release(MavenPublication){
-                from components.release
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = "com.github.moonxapps"
+            artifactId = "jkql"
+            version = "1.0"
 
-                groupId = 'com.github.MoonXapps'
-                artifactId = 'jkql'
-                version = '1.0'
+            afterEvaluate {
+                from components.release
             }
         }
     }
