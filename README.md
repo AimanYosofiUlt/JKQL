@@ -50,9 +50,12 @@ class UserTable(override val context: Context) : AppDatabase(context, "UserTable
         super.onCreate(db)  
     }  
 }
-``` 
 
-3- Prepare of creating the tables by override `onCreate(..)` function inside `JKDataBase`
+``` 
+>notice we prepare the columns inside the table by create `DBColumn` instance variable, you can create tow type of instance `getStringInstance(colName: String)` and `getNumericInstance(colName: String)`
+
+
+3- Prepare of creating the tables by override `onCreate(..)` function inside the database class and
 use `addColumn(...)` then `createTable(db,tableName)` for each table:
 ```
 open class AppDatabase(open val context: Context, tableName: String) : JKDataBase(context, tableName) {  
@@ -66,9 +69,9 @@ open class AppDatabase(open val context: Context, tableName: String) : JKDataBas
 }
 ```
 
-> *`addColumn(...)` has three overloading*
-1- `addColumn(columnName: DBColumn, AI: boolean)`  : function to create primeryKey Column  and **AI** mean is it  Auto-increment PrimeryKey?  
-2- `addColumn(columnName: DBColumn, NN: boolean, U: boolean)` : **NN** is it NotNull? and **U** is it  Unique?
+> *`addColumn(...)` has three overloading*\
+1- `addColumn(columnName: DBColumn, AI: boolean)`  : function to create primeryKey Column  and **AI** mean is it  Auto-increment PrimeryKey?  \
+2- `addColumn(columnName: DBColumn, NN: boolean, U: boolean)` : **NN** is it NotNull? and **U** is it  Unique?\
 3- `addColumn(columnName: DBColumn, defValue: String)` : **defValue** to set the default value، here the column *Not-Null* and *Not-Uniqe*
 
 ### Usage
